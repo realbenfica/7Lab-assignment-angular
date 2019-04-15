@@ -1,7 +1,10 @@
-<li *ngFor="let product of products">
-    {{ this.product.name }} 
+<div>
+  <li *ngFor="let product of products">
+    {{ this.product.name }}
     <br>
     {{ this.product.description }}
     <br>
     Prijs: €{{ this.product.price }}
+    <button (click)="onDelete(product)" class="del">x</button>
   </li>
+</div>
