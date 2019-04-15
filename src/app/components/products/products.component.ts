@@ -8,27 +8,26 @@ import { Products } from '../../models/Products';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  products:Products[];
+  products: Products[];
 
-  constructor(private todoService:ProductsService) { }
+  constructor(private productService: ProductsService) { }
 
   ngOnInit() {
-    this.todoService.getProducts().subscribe(products => {
-      this.products = products;
+    this.productService.getProducts().subscribe(products => {
+      this.products = products.data;
     });
   }
 
-  // deleteTodo(todo:Todo) {
-  //   // Remover from UI
-  //   this.todos = this.todos.filter(t => t.id !== todo.id);
-  //   // Remove from servers
-  //   this.todoService.deleteTodo(todo).subscribe();
-  // }
+  deleteProduct(product: Products) {
+    // Remover from UI
+    this.products = this.products.filter(p => p.id !== product.id);
+    // Remove from servers
+    this.productService.deleteProduct(product).subscribe();
+  }
 
-  // addTodo(todo:Todo) {
-  //   this.todoService.addTodo(todo).subscribe(todo => {
-  //     this.todos.push(todo);
-  //   })
-  // }
-
+  addProduct(product: Products) {
+    this.productService.addProduct(product).subscribe(product => {
+      this.products.push(product);
+    })
+  }
 }

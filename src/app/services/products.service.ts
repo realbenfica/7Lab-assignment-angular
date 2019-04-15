@@ -24,20 +24,14 @@ export class ProductsService {
     return this.http.get<Products[]>(`${this.productsUrl}`, httpOptions);
   }
 
-  // // Delete Todo
-  // deleteTodo(todo: Todo): Observable<Todo> {
-  //   const url = `${this.todosUrl}/${todo.id}`;
-  //   return this.http.delete<Todo>(url, httpOptions);
-  // }
-
-  // // Add Todo
-  // addTodo(todo: Todo): Observable<Todo> {
-  //   return this.http.post<Todo>(this.todosUrl, todo, httpOptions);
-  // }
+  // Add Product
+  addProduct(product: Products): Observable<Products> {
+    return this.http.post<Products>(this.productsUrl, product, httpOptions);
+  }
   
-  // // Toggle Completed
-  // toggleCompleted(todo: Todo): Observable<any> {
-  //   const url = `${this.todosUrl}/${todo.id}`
-  //   return this.http.put(url, todo, httpOptions)
-  // }
+  // Delete Product
+  deleteProduct(product: Products): Observable<Products> {
+    const url = `${this.productsUrl}/${product.id}`;
+    return this.http.delete<Products>(url, httpOptions);
+  }
 }
