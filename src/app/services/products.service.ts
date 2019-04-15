@@ -6,7 +6,8 @@ import { Products } from '../models/Products'
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Authorization': 'Basic ' + btoa('assessment@7lab.nl:secret'),
   })
 }
 
@@ -20,7 +21,7 @@ export class ProductsService {
 
   // Get Products
   getProducts(): Observable<Products[]> {
-    return this.http.get<Products[]>(`${this.productsUrl}`);
+    return this.http.get<Products[]>(`${this.productsUrl}`, httpOptions);
   }
 
   // // Delete Todo
