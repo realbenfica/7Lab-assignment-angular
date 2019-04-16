@@ -7,4 +7,32 @@
     Prijs: €{{ this.product.price }}
     <button (click)="deleteProduct(product)" class="del">x</button>
   </li>
+
+  <form class="class" (ngSubmit)="addProduct()">
+      <input 
+        type="text" 
+        name="name" 
+        [(ngModel)]="name"
+        placeholder="Add Todo..."
+        >
+      <input type="submit" value="Submit" class="btn">
+    </form>
+
 </div>
+
+
+
+<form [formGroup]="theFormGroup"> 
+    <div> 
+      <label>Password: </label>
+      <input formControlName="password"/> 
+    </div> 
+    <br /> 
+    <div> 
+      <label>Confirm Password: </label>
+      <input formControlName="confirm" /> 
+    </div> 
+    <button type="submit" (click)="submit()"> 
+      Submit Passwords 
+    </button> 
+  </form>
