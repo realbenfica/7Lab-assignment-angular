@@ -10,7 +10,7 @@ import { Products } from '../../models/Products';
 export class ProductsComponent implements OnInit {
   products: Products[];
 
-  constructor(private productService: ProductsService) { }
+  constructor(private productService: ProductsService) {}
 
   ngOnInit() {
     this.productService.getProducts().subscribe(products => {
@@ -28,6 +28,6 @@ export class ProductsComponent implements OnInit {
   addProduct(product: Products) {
     this.productService.addProduct(product).subscribe(product => {
       this.products.push(product);
-    })
+    });
   }
 }
